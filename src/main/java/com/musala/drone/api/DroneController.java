@@ -1,14 +1,15 @@
 package com.musala.drone.api;
 
 
-import com.musala.drone.commons.AppResponse;
+import com.musala.drone.assemblers.DroneAssembler;
+import com.musala.drone.dto.DroneDTO;
+import com.musala.drone.dto.MedicationListDTO;
+import com.musala.drone.enums.Status;
+
 import com.musala.drone.model.Drone;
-import com.musala.drone.model.assembler.DroneAssembler;
-import com.musala.drone.model.dto.DroneDTO;
-import com.musala.drone.model.dto.MedicationListDTO;
-import com.musala.drone.model.enums.Status;
 import com.musala.drone.service.DroneService;
-import io.swagger.annotations.ApiOperation;
+import com.musala.drone.utils.AppResponse;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -22,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/drones")
