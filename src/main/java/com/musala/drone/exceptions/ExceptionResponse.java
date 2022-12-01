@@ -1,4 +1,4 @@
-package com.musala.drone.commons.exceptions;
+package com.musala.drone.exceptions;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.musala.drone.model.dto;
+package com.musala.drone.dto;
 
 import lombok.Data;
 

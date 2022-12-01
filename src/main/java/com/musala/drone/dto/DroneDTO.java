@@ -1,10 +1,9 @@
-package com.musala.drone.model.dto;
+package com.musala.drone.dto;
 
 
-import com.musala.drone.model.enums.Model;
+import com.musala.drone.enums.Model;
+import jakarta.validation.constraints.Min;
 import lombok.Data;
-
-import javax.validation.constraints.Min;
 
 @Data
 public class DroneDTO {
