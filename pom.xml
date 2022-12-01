@@ -9,10 +9,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.musala</groupId>
-    <artifactId>drone</artifactId>
+    <artifactId>musala-drone</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>drone</name>
-    <description>drone</description>
+    <name>musala-drone</name>
+    <description>This is a simple medical drone management</description>
+    <packaging>jar</packaging>
     <properties>
         <java.version>17</java.version>
     </properties>
