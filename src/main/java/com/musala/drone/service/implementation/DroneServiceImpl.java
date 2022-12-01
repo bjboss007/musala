@@ -5,7 +5,7 @@ import com.musala.drone.config.CloudinaryConfig;
 import com.musala.drone.dto.DroneDTO;
 import com.musala.drone.dto.MedicationDTO;
 import com.musala.drone.dto.MedicationListDTO;
-import com.musala.drone.enums.Status;
+import com.musala.drone.enums.State;
 import com.musala.drone.exceptions.BadRequestException;
 import com.musala.drone.exceptions.ObjectNotFoundException;
 import com.musala.drone.model.Drone;
@@ -18,8 +18,9 @@ import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -39,7 +40,7 @@ public class DroneServiceImpl implements DroneService {
 
     @Override
     public List<Drone> fetchAllDrones() {
-        return droneRepository.findAll();
+        return droneRepository.findAll(Sort.by(Direction.DESC, "id"));
     }
 
     @Override
@@ -64,7 +65,7 @@ public class DroneServiceImpl implements DroneService {
 
     @Override
     public List<Drone> availableDroneForLoading() {
-        return droneRepository.findDronesByStatus(Status.LOADING);
+        return droneRepository.findDronesByState(State.LOADING);
     }
 
     @Override
@@ -107,20 +108,20 @@ public class DroneServiceImpl implements DroneService {
                 .map(m -> modelMapper.map(m, Medication.class))
                 .forEach(drone::addMedication);
 
-        drone.setStatus(Status.LOADED);
+        drone.setState(State.LOADED);
 
         return droneRepository.save(drone);
     }
 
     @Override
-    public Drone updateStatus(String droneId, Status status) {
+    public Drone updateStatus(String droneId, State state) {
         Drone drone = fetchDroneById(droneId);
-        if(drone.getBatteryPercentage() < 25 && status.equals(Status.LOADING)) throw new BadRequestException("Drone's battery level is below 25%");
-        if(status.equals(Status.DELIVERED)){
+        if(drone.getBatteryPercentage() < 25 && state.equals(State.LOADING)) throw new BadRequestException("Drone's battery level is below 25%");
+        if(state.equals(State.DELIVERED)){
             Integer percentage = drone.getBatteryPercentage();
             drone.setBatteryPercentage(percentage - 25);
         }
-        drone.setStatus(status);
+        drone.setState(state);
         return droneRepository.save(drone);
     }
 

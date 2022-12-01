@@ -1,9 +1,9 @@
 package com.musala.drone.config;
 
+import com.musala.drone.enums.Model;
+import com.musala.drone.enums.State;
 import com.musala.drone.model.Drone;
 import com.musala.drone.model.Medication;
-import com.musala.drone.model.enums.Model;
-import com.musala.drone.model.enums.Status;
 import com.musala.drone.repository.DroneRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.InitializingBean;
@@ -25,7 +25,7 @@ public class AppInit implements InitializingBean {
     private void loadDrones(){
         Drone drone = Drone.builder()
                 .model(Model.Heavyweight)
-                .status(Status.LOADING)
+                .state(State.LOADING)
                 .weight(500)
                 .medicationList(Arrays.asList(
                         Medication.builder()
@@ -35,7 +35,7 @@ public class AppInit implements InitializingBean {
                                 .image("http://res.cloudinary.com/habib007/image/upload/v1645218982/qtbgc8ic4eidr7zhbeg7.jpg")
                                 .build(),
                         Medication.builder()
-                                .code("PMD")
+                                .code("SEP")
                                 .weight(200)
                                 .name("Septrine")
                                 .image("http://res.cloudinary.com/habib007/image/upload/v1645218982/qtbgc8ic4eidr7zhbeg7.jpg")
@@ -44,7 +44,7 @@ public class AppInit implements InitializingBean {
 
         Drone drone2 = Drone.builder()
                 .model(Model.Middleweight)
-                .status(Status.LOADING)
+                .state(State.LOADING)
                 .weight(300.00)
                 .medicationList(Arrays.asList(
                         Medication.builder()
@@ -54,7 +54,7 @@ public class AppInit implements InitializingBean {
                                 .image("http://res.cloudinary.com/habib007/image/upload/v1645218982/qtbgc8ic4eidr7zhbeg7.jpg")
                                 .build(),
                         Medication.builder()
-                                .code("PMD")
+                                .code("SEP")
                                 .weight(12.00)
                                 .name("Septrine single")
                                 .image("http://res.cloudinary.com/habib007/image/upload/v1645218982/qtbgc8ic4eidr7zhbeg7.jpg")
@@ -63,7 +63,7 @@ public class AppInit implements InitializingBean {
 
         Drone drone3 = Drone.builder()
                 .model(Model.Lightweight)
-                .status(Status.LOADING)
+                .state(State.LOADING)
                 .weight(100.00)
                 .medicationList(Arrays.asList(
                         Medication.builder()
@@ -73,7 +73,7 @@ public class AppInit implements InitializingBean {
                                 .image("http://res.cloudinary.com/habib007/image/upload/v1645218982/qtbgc8ic4eidr7zhbeg7.jpg")
                                 .build(),
                         Medication.builder()
-                                .code("PMD")
+                                .code("SEP")
                                 .weight(20.00)
                                 .name("Septrine")
                                 .image("http://res.cloudinary.com/habib007/image/upload/v1645218982/qtbgc8ic4eidr7zhbeg7.jpg")
@@ -82,7 +82,7 @@ public class AppInit implements InitializingBean {
 
         Drone drone4 = Drone.builder()
                 .model(Model.Cruiserweight)
-                .status(Status.LOADING)
+                .state(State.LOADING)
                 .weight(400.00)
                 .medicationList(Arrays.asList(
                         Medication.builder()
@@ -92,7 +92,7 @@ public class AppInit implements InitializingBean {
                                 .image("http://res.cloudinary.com/habib007/image/upload/v1645218982/qtbgc8ic4eidr7zhbeg7.jpg")
                                 .build(),
                         Medication.builder()
-                                .code("PMD")
+                                .code("SEP")
                                 .weight(20.00)
                                 .name("Septrine")
                                 .image("http://res.cloudinary.com/habib007/image/upload/v1645218982/qtbgc8ic4eidr7zhbeg7.jpg")
@@ -101,13 +101,13 @@ public class AppInit implements InitializingBean {
 
         Drone drone5 = Drone.builder()
                 .model(Model.Lightweight)
-                .status(Status.IDLE)
+                .state(State.IDLE)
                 .weight(40)
                 .build();
 
         Drone drone6 = Drone.builder()
                 .model(Model.Lightweight)
-                .status(Status.LOADED)
+                .state(State.LOADED)
                 .weight(40)
                 .medicationList(Arrays.asList(
                         Medication.builder()
@@ -117,7 +117,7 @@ public class AppInit implements InitializingBean {
                                 .image("http://res.cloudinary.com/habib007/image/upload/v1645218982/qtbgc8ic4eidr7zhbeg7.jpg")
                                 .build(),
                         Medication.builder()
-                                .code("PMD")
+                                .code("SEP")
                                 .weight(20)
                                 .name("Septrine")
                                 .image("http://res.cloudinary.com/habib007/image/upload/v1645218982/qtbgc8ic4eidr7zhbeg7.jpg")

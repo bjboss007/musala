@@ -1,5 +1,5 @@
 package com.musala.drone.enums;
 
-public enum Status {
+public enum State {
     IDLE, LOADING, LOADED, DELIVERING, DELIVERED, RETURNING
 }

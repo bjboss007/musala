@@ -2,7 +2,7 @@ package com.musala.drone.service;
 
 import com.musala.drone.dto.DroneDTO;
 import com.musala.drone.dto.MedicationListDTO;
-import com.musala.drone.enums.Status;
+import com.musala.drone.enums.State;
 import com.musala.drone.model.Drone;
 import com.musala.drone.model.Medication;
 
@@ -17,6 +17,6 @@ public interface DroneService {
     List<Drone> availableDroneForLoading();
     Drone updateBatteryLevel(String drone, int batteryLevel);
     Drone loadDrone(String drone, MedicationListDTO medicationList);
-    Drone updateStatus(String droneId, Status status);
+    Drone updateStatus(String droneId, State state);
 
 }

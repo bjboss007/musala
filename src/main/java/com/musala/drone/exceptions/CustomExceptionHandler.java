@@ -58,6 +58,5 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                 false
         );
         return new ResponseEntity(exceptionResponse, HttpStatus.BAD_GATEWAY);
-
     }
 }

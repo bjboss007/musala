@@ -4,12 +4,12 @@ package com.musala.drone.api;
 import com.musala.drone.assemblers.DroneAssembler;
 import com.musala.drone.dto.DroneDTO;
 import com.musala.drone.dto.MedicationListDTO;
-import com.musala.drone.enums.Status;
+import com.musala.drone.enums.State;
 
 import com.musala.drone.model.Drone;
 import com.musala.drone.service.DroneService;
 import com.musala.drone.utils.AppResponse;
-import jakarta.validation.Valid;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 
 @RestController
@@ -99,10 +101,10 @@ public class DroneController {
     }
 
     @PatchMapping("update-status")
-    public ResponseEntity<?> updateDroneStatus(@RequestParam("droneId") String droneId, @RequestParam Status status){
+    public ResponseEntity<?> updateDroneStatus(@RequestParam("droneId") String droneId, @RequestParam State state){
         AppResponse response = AppResponse.builder()
                 .message("success")
-                .data(droneAssembler.toModel(droneService.updateStatus(droneId, status)))
+                .data(droneAssembler.toModel(droneService.updateStatus(droneId, state)))
                 .build();
 
         return ResponseEntity.ok(response);

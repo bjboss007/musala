@@ -2,7 +2,7 @@ package com.musala.drone.model;
 
 
 import com.musala.drone.enums.Model;
-import com.musala.drone.enums.Status;
+import com.musala.drone.enums.State;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,7 +33,7 @@ public class Drone {
     private Integer batteryPercentage = 100;
     private Model model;
     @Builder.Default
-    private Status status = Status.IDLE;
+    private State state = State.IDLE;
     private List<Medication> medicationList = new ArrayList<>();
 
     @CreatedDate

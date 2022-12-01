@@ -1,0 +1,22 @@
+
+server:
+  port: 9095
+
+spring:
+  data:
+    mongodb:
+      database: ${SPRING_DATA_MONGODB_DATABASE:musaladrone}
+      host: ${SPRING_DATA_MONGODB_HOST:localhost}
+      port: ${SPRING_DATA_MONGODB_PORT:27017}
+      auto-index-creation: true
+
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+cloud:
+  key: 529763968212671
+  secret: 31HLIveDpLlDzvRmxD-l4iWVHxE
+  name : habib007
